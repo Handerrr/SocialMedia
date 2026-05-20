@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-export const api = axios.create({ baseURL: '/api/' });
+export const api = axios.create({
+  baseURL: 'https://socialmedia-i1of.onrender.com/api/',
+});
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
@@ -27,7 +29,7 @@ api.interceptors.response.use(
 
       try {
         const refresh = localStorage.getItem('refresh');
-        const response = await axios.post('/api/token/refresh/', { refresh });
+        const response = await api.post('token/refresh/', { refresh });
         const newAccess = response.data.access;
 
         localStorage.setItem('token', newAccess);
