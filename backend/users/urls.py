@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import PostListCreateView, ToggleLikeView, CommentListCreateView, UserListView, ToggleFollowView, \
-    ProfileView, RegisterView, UserPostsView, ProfileUpdateView, UserDetailView, ToggleCommentLikeView, PostDeleteView
+    ProfileView, RegisterView, UserPostsView, ProfileUpdateView, UserDetailView, ToggleCommentLikeView, PostDeleteView, create_admin
 
 urlpatterns = [
     path('posts/', PostListCreateView.as_view()),
@@ -15,4 +15,5 @@ urlpatterns = [
     path('profile/update/', ProfileUpdateView.as_view()),
     path ('posts/<int:pk>/delete/', PostDeleteView.as_view()),
     path('comments/<int:comment_id>/like/', ToggleCommentLikeView.as_view()),
+    path('create-admin/', create_admin),
 ]

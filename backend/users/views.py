@@ -11,6 +11,7 @@ from django.shortcuts import get_object_or_404
 from .models import Post, Follow, Like, Comment, User, CommentLike
 from .serializers import PostSerializer, CommentSerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.contrib.auth import get_user_model
 from django.db.models import Q
 
 
@@ -195,3 +196,17 @@ class ToggleCommentLikeView(APIView):
             'message': 'Like added'
         })
 
+User = get_user_model()
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def create_admin(request):
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser(
+            username='admin',
+            email='admin@gmail.com',
+            password='12345678'
+        )
+
+    return Response({'status': 'admin created'})
