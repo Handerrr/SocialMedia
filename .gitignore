@@ -8,7 +8,8 @@ __pycache__/
 .env.*
 db.sqlite3
 backend/media/
-
+backend/backend/media
+data.json
 
 # VSCode / IntelliJ
 .vscode/
