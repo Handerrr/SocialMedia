@@ -4,7 +4,7 @@ services:
     container_name: SocialMedia_db
 
     env_file:
-      - ./backend/.env.dev
+      - ./backend/.env.prod
 
     ports:
       - "5432:5432"
@@ -25,7 +25,7 @@ services:
 
     environment:
       - DJANGO_ALLOW_ASYNC_UNSAFE=true
-      - DJANGO_SETTINGS_MODULE=backend.settings.dev
+      - DJANGO_SETTINGS_MODULE=backend.settings.prod
 
     volumes:
       - ./backend:/app
