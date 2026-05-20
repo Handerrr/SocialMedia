@@ -1,15 +1,17 @@
 from .base import *
 
+DEBUG = False
+
 ALLOWED_HOSTS = [
     '.onrender.com',
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://SEU-FRONTEND.vercel.app',
+    'https://socialmedia-1-brq2.onrender.com/',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://SEU-FRONTEND.vercel.app',
+    'https://socialmedia-1-brq2.onrender.com/',
 ]
 
 DATABASES = {
@@ -22,3 +24,12 @@ DATABASES = {
         "PORT": config("DB_PORT"),
     }
 }
+
+MIDDLEWARE.insert(
+    1,
+    'whitenoise.middleware.WhiteNoiseMiddleware'
+)
+
+STATICFILES_STORAGE = (
+    'whitenoise.storage.CompressedManifestStaticFilesStorage'
+)
