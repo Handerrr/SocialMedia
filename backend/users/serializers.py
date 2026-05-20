@@ -28,6 +28,15 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
+    def get_profile_pic(self, obj):
+        request = self.context.get("request")
+
+        if obj.profile_pic:
+            if request:
+                return request.build_absolute_uri(obj.profile_pic.url)
+
+        return None
+
     def get_followers_count(self, obj):
             return obj.followers.count()
 

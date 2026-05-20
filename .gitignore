@@ -5,8 +5,10 @@ __pycache__/
 
 # Django
 .env
+.env.*
 db.sqlite3
-media/
+backend/media/
+
 
 # VSCode / IntelliJ
 .vscode/

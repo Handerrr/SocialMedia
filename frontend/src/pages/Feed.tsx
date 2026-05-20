@@ -41,7 +41,7 @@ function Feed() {
       <S.Container>
         <S.CreatePostBox>
           {user?.profile_pic ? (
-            <S.ProfileImage src={`http://127.0.0.1:8000${user.profile_pic}`} />
+            <S.ProfileImage src={user.profile_pic} />
           ) : (
             <S.Avatar>{user?.username.charAt(0).toUpperCase()}</S.Avatar>
           )}

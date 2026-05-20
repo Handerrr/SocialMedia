@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakpoints } from './breakpoint';
+import { breakpoints } from './Breakpoint';
 
 export const Container = styled.div`
   margin-top: 15px;

@@ -1,0 +1,58 @@
+services:
+  db:
+    image: postgres:16
+    container_name: SocialMedia_db
+
+    env_file:
+      - ./backend/.env.dev
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+
+    container_name: SocialMedia_backend
+
+    command: >
+      sh -c "
+      python manage.py migrate &&
+      gunicorn backend.wsgi:application --bind 0.0.0.0:8000
+      "
+
+    environment:
+      - DJANGO_ALLOW_ASYNC_UNSAFE=true
+      - DJANGO_SETTINGS_MODULE=backend.settings.dev
+
+    volumes:
+      - ./backend:/app
+      - media_volume:/app/media
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - backend/.env.dev
+
+    depends_on:
+      - db
+
+
+  frontend:
+    build: ./frontend
+    container_name: SocialMedia_frontend
+    ports:
+      - "80:80"
+
+    volumes:
+      - media_volume:/usr/share/nginx/html/media
+
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  media_volume:

@@ -2,8 +2,9 @@ from django.db.migrations import serializer
 from rest_framework import generics, status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import permissions
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, parser_classes
 from rest_framework.filters import OrderingFilter, SearchFilter
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
@@ -126,7 +127,7 @@ class ProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        serializer = UserSerializer(request.user)
+        serializer = UserSerializer(request.user, context={'request': request})
         return Response(serializer.data)
 
 class RegisterView(generics.CreateAPIView):
@@ -144,9 +145,11 @@ class UserPostsView(generics.ListAPIView):
 
 class ProfileUpdateView(APIView):
     permission_classes = [IsAuthenticated]
+    parser_classes([MultiPartParser, FormParser])
 
     def put(self, request):
-        serializer = UserSerializer(request.user, data=request.data, partial=True)
+        serializer = UserSerializer(request.user, data=request.data, partial=True, context={'request': request})
+
 
         if serializer.is_valid():
            user = serializer.save()
@@ -155,7 +158,7 @@ class ProfileUpdateView(APIView):
                user.set_password(password)
                user.save()
 
-           return Response(serializer.data)
+           return Response(UserSerializer(user, context={'request': request}).data)
 
         return Response(
             serializer.errors,

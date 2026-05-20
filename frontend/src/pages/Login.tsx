@@ -19,6 +19,7 @@ function Login() {
       console.log(response.data);
 
       localStorage.setItem('token', response.data.access);
+      localStorage.setItem('refresh', response.data.refresh);
 
       alert('Login feito com sucesso!');
       navigate('/feed');

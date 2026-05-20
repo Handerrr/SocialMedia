@@ -49,7 +49,7 @@ function Profile() {
       <S.Container>
         <S.ProfileHeader>
           {user.profile_pic ? (
-            <S.ProfileImage src={`http://127.0.0.1:8000${user.profile_pic}`} />
+            <S.ProfileImage src={user.profile_pic} />
           ) : (
             <S.DefaultAvatar>
               {user.username.charAt(0).toUpperCase()}
@@ -57,6 +57,7 @@ function Profile() {
           )}
           <h1>{user.username}</h1>
           <span>@{user.username}</span>
+          {user.bio && <p>{user.bio}</p>}
           <S.Stats>
             <button onClick={() => setShowFollowers(!showFollowers)}>
               <strong>{user.followers_count}</strong> followers

@@ -8,6 +8,7 @@ import UserProfile from './pages/UserProfile';
 import Search from './pages/Search';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
   const location = useLocation();
@@ -20,12 +21,15 @@ function App() {
       {!hideLayout && <Navbar />}
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/feed" element={<Feed />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/edit" element={<EditProfile />} />
-        <Route path="/users/:id" element={<UserProfile />} />
-        <Route path="/search" element={<Search />} />
+
+        <Route element={<PrivateRoute />}>
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/edit" element={<EditProfile />} />
+          <Route path="/users/:id" element={<UserProfile />} />
+          <Route path="/search" element={<Search />} />
+        </Route>
       </Routes>
       {!hideLayout && <Footer />}
     </>

@@ -58,9 +58,9 @@ function UserProfile() {
             </S.DefaultAvatar>
           )}
 
-          <h1>{user.username}</h1>
+          <h1>@{user.username}</h1>
 
-          <span>{user.bio}</span>
+          {user.bio && <p>{user.bio}</p>}
 
           <S.Stats>
             <div>
