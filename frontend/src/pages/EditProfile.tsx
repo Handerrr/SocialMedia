@@ -45,7 +45,7 @@ function EditProfile() {
       }
 
       if (profilePic) {
-        formData.append('profile_pic_url', profilePic);
+        formData.append('profile_pic', profilePic);
       }
 
       await api.put('profile/update/', formData, {
