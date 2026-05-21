@@ -24,7 +24,7 @@ def home(request):
     return render(request, 'home.html')
 
 urlpatterns = [
-    path('', home),
+    path('', home, name='home'),
     path("admin/", admin.site.urls),
     path('api/', include('users.urls')),
     path('api/token/', TokenObtainPairView.as_view()),
