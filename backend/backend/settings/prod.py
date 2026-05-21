@@ -1,8 +1,5 @@
 from .base import *
 
-MEDIA_URL = config('MEDIA_URL')
-MEDIA_ROOT = config(BASE_DIR / 'media')
-
 DEBUG = False
 
 ALLOWED_HOSTS = [
@@ -16,6 +13,9 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://socialmedia-1-brq2.onrender.com/',
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 DATABASES = {
     "default": {
