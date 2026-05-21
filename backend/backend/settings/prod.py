@@ -7,11 +7,11 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://socialmedia-1-brq2.onrender.com/',
+    'https://socialmedia-1-brq2.onrender.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://socialmedia-1-brq2.onrender.com/',
+    'https://socialmedia-1-brq2.onrender.com',
 ]
 
 MEDIA_URL = '/media/'
