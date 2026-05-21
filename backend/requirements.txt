@@ -9,4 +9,4 @@ Pillow==12.2.0
 gunicorn==26.0.0
 whitenoise==6.11.0
 cloudinary==1.44.1
-django-cloudinary-storage==0.3.
+django-cloudinary-storage==0.3.0
