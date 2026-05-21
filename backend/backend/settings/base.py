@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 AUTH_USER_MODEL = "users.User"
 
 REST_FRAMEWORK = {
