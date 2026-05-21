@@ -40,8 +40,3 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
-
-MIDDLEWARE.insert(
-    1,
-    'whitenoise.middleware.WhiteNoiseMiddleware'
-)
