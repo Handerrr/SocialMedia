@@ -55,8 +55,8 @@ function Comments({ postId, postAuthor }: Props) {
       .map((comment) => (
         <S.CommentWrapper key={comment.id} $level={level}>
           <S.NestedCommentCard $nested={level > 0}>
-            {comment.user.profile_pic ? (
-              <S.ProfileImage src={comment.user.profile_pic} />
+            {comment.user.profile_pic_url ? (
+              <S.ProfileImage src={comment.user.profile_pic_url} />
             ) : (
               <S.Avatar>
                 {comment.user.username.charAt(0).toUpperCase()}
