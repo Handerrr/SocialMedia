@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models import User, Post, Comment, Like, Follow, CommentLike
 
 class UserSerializer(serializers.ModelSerializer):
+    profile_pic = serializers.SerializerMethodField()
     password = serializers.CharField(write_only=True)
 
     followers_count = serializers.SerializerMethodField()

@@ -146,7 +146,7 @@ class UserPostsView(generics.ListAPIView):
 
 class ProfileUpdateView(APIView):
     permission_classes = [IsAuthenticated]
-    parser_classes([MultiPartParser, FormParser])
+    parser_classes = [MultiPartParser, FormParser]
 
     def put(self, request):
         serializer = UserSerializer(request.user, data=request.data, partial=True, context={'request': request})
@@ -195,18 +195,3 @@ class ToggleCommentLikeView(APIView):
         return Response({
             'message': 'Like added'
         })
-
-User = get_user_model()
-
-
-@api_view(['GET'])
-@permission_classes([AllowAny])
-def create_admin(request):
-    if not User.objects.filter(username='admin').exists():
-        User.objects.create_superuser(
-            username='admin',
-            email='admin@gmail.com',
-            password='12345678'
-        )
-
-    return Response({'status': 'admin created'})
