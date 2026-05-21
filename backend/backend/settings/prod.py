@@ -20,12 +20,3 @@ CLOUDINARY_STORAGE = {
     'API_KEY': config('API_KEY'),
     'API_SECRET': config('API_SECRET'),
 }
-
-MIDDLEWARE.insert(
-    1,
-    'whitenoise.middleware.WhiteNoiseMiddleware'
-)
-
-STORAGES["staticfiles"] = {
-    "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-}
