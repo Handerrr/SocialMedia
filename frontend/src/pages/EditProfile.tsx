@@ -17,8 +17,8 @@ function EditProfile() {
       setUsername(res.data.username);
       setBio(res.data.bio || '');
 
-      if (res.data.profile_pic) {
-        setPreview(res.data.profile_pic);
+      if (res.data.profile_pic_url) {
+        setPreview(res.data.profile_pic_url);
       }
     }
     load();
@@ -45,10 +45,14 @@ function EditProfile() {
       }
 
       if (profilePic) {
-        formData.append('profile_pic', profilePic);
+        formData.append('profile_pic_url', profilePic);
       }
 
-      await api.put('profile/update/', formData);
+      await api.put('profile/update/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       alert('Perfil atualizado!');
     } catch {
       alert('Erro ao atualizar');

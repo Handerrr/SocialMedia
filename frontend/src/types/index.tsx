@@ -1,7 +1,7 @@
 export type User = {
   id: number;
   username: string;
-  profile_pic: string;
+  profile_pic_url: string;
 };
 
 export type Comment = {
@@ -22,7 +22,7 @@ export type Post = {
   author: {
     id: number;
     username: string;
-    profile_pic: string;
+    profile_pic_url: string;
   };
 };
 
@@ -30,7 +30,7 @@ export type ProfileUser = {
   id: number;
   username: string;
   bio: string;
-  profile_pic: string;
+  profile_pic_url: string;
   followers_count: number;
   following_count: number;
   posts_count: number;

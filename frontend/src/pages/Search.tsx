@@ -41,8 +41,8 @@ function Search() {
               }}
             >
               <S.UserCard>
-                {user.profile_pic ? (
-                  <S.ProfileImage src={user.profile_pic} />
+                {user.profile_pic_url ? (
+                  <S.ProfileImage src={user.profile_pic_url} />
                 ) : (
                   <S.Avatar>{user.username.charAt(0).toUpperCase()}</S.Avatar>
                 )}

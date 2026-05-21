@@ -40,8 +40,8 @@ function Feed() {
     <S.Page>
       <S.Container>
         <S.CreatePostBox>
-          {user?.profile_pic ? (
-            <S.ProfileImage src={user.profile_pic} />
+          {user?.profile_pic_url ? (
+            <S.ProfileImage src={user.profile_pic_url} />
           ) : (
             <S.Avatar>{user?.username.charAt(0).toUpperCase()}</S.Avatar>
           )}
@@ -64,8 +64,8 @@ function Feed() {
         {posts.map((post) => (
           <div key={post.id}>
             <S.Post>
-              {post.author.profile_pic ? (
-                <S.ProfileImage src={post.author.profile_pic} />
+              {post.author.profile_pic_url ? (
+                <S.ProfileImage src={post.author.profile_pic_url} />
               ) : (
                 <S.Avatar>
                   {post.author.username.charAt(0).toUpperCase()}

@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import User, Post, Comment, Like, Follow, CommentLike
 
 class UserSerializer(serializers.ModelSerializer):
-    profile_pic = serializers.SerializerMethodField()
+    profile_pic_url = serializers.SerializerMethodField()
     password = serializers.CharField(write_only=True)
 
     followers_count = serializers.SerializerMethodField()
@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["id", "username", "password", "email", "bio", "profile_pic", "followers_count", "following_count", "posts_count", "followers", "following", "is_following"]
+        fields = ["id", "username", "password", "email", "bio", "profile_pic", "profile_pic_url", "followers_count", "following_count", "posts_count", "followers", "following", "is_following"]
 
     def create(self, validated_data):
         password = validated_data.pop("password")
@@ -29,7 +29,7 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-    def get_profile_pic(self, obj):
+    def get_profile_pic_url(self, obj):
         request = self.context.get("request")
 
         if obj.profile_pic:

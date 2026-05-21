@@ -48,8 +48,8 @@ function Profile() {
     <>
       <S.Container>
         <S.ProfileHeader>
-          {user.profile_pic ? (
-            <S.ProfileImage src={user.profile_pic} />
+          {user.profile_pic_url ? (
+            <S.ProfileImage src={user.profile_pic_url} />
           ) : (
             <S.DefaultAvatar>
               {user.username.charAt(0).toUpperCase()}
@@ -105,8 +105,8 @@ function Profile() {
             posts.map((post) => (
               <S.PostCard key={post.id}>
                 <S.PostHeader>
-                  {post.author.profile_pic ? (
-                    <S.PostAvatar src={post.author.profile_pic} />
+                  {post.author.profile_pic_url ? (
+                    <S.PostAvatar src={post.author.profile_pic_url} />
                   ) : (
                     <S.SmallAvatar>
                       {post.author.username.charAt(0).toUpperCase()}
