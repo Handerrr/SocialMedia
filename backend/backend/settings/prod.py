@@ -1,4 +1,5 @@
 from .base import *
+from decouple import config
 
 DEBUG = False
 
@@ -14,9 +15,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://socialmedia-1-brq2.onrender.com',
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -27,6 +25,14 @@ DATABASES = {
         "PORT": config("DB_PORT"),
     }
 }
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('API_KEY'),
+    'API_SECRET': config('API_SECRET'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MIDDLEWARE.insert(
     1,
