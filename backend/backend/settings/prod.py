@@ -32,11 +32,6 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': config('API_SECRET'),
 }
 
-STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
+STORAGES["staticfiles"] = {
+    "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
 }
