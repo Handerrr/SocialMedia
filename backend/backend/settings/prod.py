@@ -1,5 +1,8 @@
 from .base import *
 
+MEDIA_URL = config('MEDIA_URL')
+MEDIA_ROOT = config(BASE_DIR / 'media')
+
 DEBUG = False
 
 ALLOWED_HOSTS = [
