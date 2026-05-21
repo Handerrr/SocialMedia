@@ -83,7 +83,7 @@ function Feed() {
                   <div>
                     <S.Username>{post.author.username}</S.Username>
 
-                    <S.Handle>@{post.author.username}</S.Handle>
+                    <S.Handle>@ {post.author.username}</S.Handle>
                   </div>
                 </Link>
 
