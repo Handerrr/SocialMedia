@@ -17,18 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from django.http import HttpResponse
+from django.shortcuts import render
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
 def home(request):
-    return HttpResponse("""
-    <h1>SocialMedia API Online 🚀</h1>
-    <p>Frontend:</p>
-    <a href="https://socialmedia-1-brq2.onrender.com">
-        Abrir Aplicação
-    </a>
-    """)
-
+    return render(request, 'home.html')
 
 urlpatterns = [
     path('', home),
