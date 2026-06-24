@@ -4,15 +4,16 @@ from decouple import config
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '.onrender.com',
+".railway.app",
+".up.railway.app",
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://socialmedia-1-brq2.onrender.com',
+    'https://socialmedia-production-b6d8.up.railway.app/',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://socialmedia-1-brq2.onrender.com',
+    'https://socialmedia-production-b6d8.up.railway.app/',
 ]
 
 CLOUDINARY_STORAGE = {

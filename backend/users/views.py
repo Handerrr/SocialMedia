@@ -1,8 +1,7 @@
-from django.db.migrations import serializer
 from rest_framework import generics, status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import permissions
-from rest_framework.decorators import api_view, permission_classes, parser_classes
+from rest_framework.decorators import  permission_classes, parser_classes
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.views import APIView
@@ -12,7 +11,7 @@ from .models import Post, Follow, Like, Comment, User, CommentLike
 from .serializers import PostSerializer, CommentSerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.contrib.auth import get_user_model
-from django.db.models import Q
+
 
 
 class NoPagination(PageNumberPagination):
