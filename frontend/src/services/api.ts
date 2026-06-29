@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'https://socialmedia-i1of.onrender.com/api/',
+  baseURL: 'https://socialmedia-production-b6d8.up.railway.app/api/',
 });
 
 api.interceptors.request.use((config) => {

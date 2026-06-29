@@ -10,10 +10,13 @@ ALLOWED_HOSTS = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://socialmedia-production-b6d8.up.railway.app",
+    "https://social-media-theta-five.vercel.app",
+
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://socialmedia-production-b6d8.up.railway.app",
+    "https://social-media-theta-five.vercel.app",
 ]
 
 CLOUDINARY_STORAGE = {
